@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplos dile-ajax-form</title>
+  <style>
+    body {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplos dile-ajax-form</h1>
+
+  <dile-ajax-form
+    operation="insert"
+    endpoint="https://timer.escuelait.com/api/countries"
+    actionLabel="Guardar"
+    formIdentifier="forminsertcountry"
+  >
+    <p>Hola a todos... puedes insertar el formulario.</p>
+    <demo-country-form id="forminsertcountry"></demo-country-form>
+  </dile-ajax-form>
+
+
+  <dile-ajax-form
+    id="updateform"
+    operation="update"
+    relatedId="5"
+    endpoint="https://timer.escuelait.com/api/countries"
+    actionLabel="Actualizar este país"
+    formIdentifier="formupdatecountry"
+    loadOnInit
+  >
+    <p>Hola a todos... puedes actualizar el país.</p>
+    <demo-country-form id="formupdatecountry"></demo-country-form>
+  </dile-ajax-form>
+
+  
+<hr>
+
+<h2>Tareas</h2>
+
+<dile-ajax-form
+  operation="insert"
+  endpoint="https://todolistapi.escuelait.com/api/todos"
+  actionLabel="Guardar"
+  formIdentifier="forminserttodo"
+  language="es"
+>
+  <demo-todo-form id="forminserttodo"></demo-todo-form>
+</dile-ajax-form>
+
+
+<dile-ajax-form
+  id="updateformtodo"
+  operation="update"
+  relatedId="7"
+  endpoint="https://todolistapi.escuelait.com/api/todos"
+  actionLabel="Actualizar la tarea"
+  formIdentifier="formupdatetodo"
+  language="es"
+  >
+  <demo-todo-form id="formupdatetodo"></demo-todo-form>
+</dile-ajax-form>
+
+  <demo-ajax-form></demo-ajax-form>
+
+  <script type="module" src="/src/dile-ajax-form-examples.js"></script>
+</body>
+</html>

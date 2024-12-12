@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplos CRUD</title>
+  <style>
+    body {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplos CRUD</h1>
+
+  <dile-ajax
+    id="elajax"
+    method="get"
+    url="https://jsonplaceholder.typicode.com/todos"
+  ></dile-ajax>
+
+
+  <dile-ajax
+    id="ajaxcreate"
+    method="post"
+    url="https://timer.escuelait.com/api/countries"
+  ></dile-ajax>
+
+  <button id="botoncreate">Dar de alta Andorra</button>
+
+
+
+  <script src="/src/dile-ajax-examples.js" type="module"></script>
+</body>
+</html>

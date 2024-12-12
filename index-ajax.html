@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Probando dile-ajax</title>
+</head>
+
+<body>
+
+  <my-app></my-app>
+
+  <script type="module">
+    import { LitElement, html } from 'lit';
+    import '@dile/crud/components/ajax/ajax.js';
+
+    class MyApp extends LitElement {
+      firstUpdated() {
+        const ajaxComponent = this.shadowRoot.getElementById('ajaxComponent');
+        ajaxComponent.generateRequest();
+      }
+
+      static get properties() {
+        return {
+          todos: { type: Array }
+        };
+      }
+
+      constructor() {
+        super();
+        this.todos = [];
+      }
+
+      render() {
+        return html`
+        <dile-ajax
+          id="ajaxComponent"
+          method="get"
+          url="https://jsonplaceholder.typicode.com/posts"
+          @ajax-success=${this.handleSuccess}
+          @ajax-error=${this.handleErrors}
+      ></dile-ajax>
+      <ul>
+        ${this.todos.map(todo => html`
+          <li>
+            <b>${todo.id}</b>:
+            ${todo.title}
+          </li>
+        `)}
+      `
+      }
+      handleSuccess(event) {
+        const data = event.detail;
+        console.log('Datos recibidos:', data);
+        this.todos = event.detail;
+      }
+
+      handleErrors(event) {
+        const error = event.detail;
+        console.error('Error en la solicitud:', error);
+      }
+    }
+
+    customElements.define('my-app', MyApp);
+  </script>
+
+
+</body>
+
+</html>
